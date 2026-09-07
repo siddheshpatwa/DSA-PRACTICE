@@ -1,0 +1,28 @@
+var backspaceCompare = function(s, t) {
+    const stackS = [];
+    const stackT = [];
+
+    // Process s
+    for (let char of s) {
+        if (char === '#') {
+            if (stackS.length > 0) {
+                stackS.pop();
+            }
+        } else {
+            stackS.push(char);
+        }
+    }
+
+    // Process t
+    for (let char of t) {
+        if (char === '#') {
+            if (stackT.length > 0) {
+                stackT.pop();
+            }
+        } else {
+            stackT.push(char);
+        }
+    }
+
+    return stackS.join('') === stackT.join('');
+};
